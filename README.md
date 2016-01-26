@@ -3,7 +3,7 @@ Course Project: Getting and Cleaning Data
 This repo consists of files related to the course project of "Getting and Cleaning Data". 
 
 ## Installation
-* Download the raw data from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip to `data_cleaning` and unzip it.
+* Download the raw data from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip to working directory and unzip it.
 * Download `run_analysis.R` and run the script.
     
 ## Running the analysis     
