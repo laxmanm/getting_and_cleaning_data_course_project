@@ -10,12 +10,12 @@ The script run_analysis.R performs all the 5 steps explained in the course proje
 2. Columns with meaures MEAN and STANDARD DEVIATION are extracted from the dataset. Appropriate names are updated from `features.txt` file in the obtained dataset.
 3. From the `activity_labels.txt` file, corresponding activites are updated in the dataset. (Available activites are:  WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING).
 4. Dataset is labeled in a descriptive way:
-- `tBodyAcc-mean()-X` becomes `timeBodyAccMeanX` 
-- `tBodyAcc-std()-Y` becomes `timeBodyAccStdY`
-- `fBodyAcc-mean()-Z` becomes `freqBodyAccMeanZ`
-- `fBodyBodyGyroMag-mean()` becomes `freqBodyGyroMagMean`
-- `fBodyBodyGyroJerkMag-meanFreq()` becomes `freqBodyGyroJerkMagMeanFreq`
-5. Independent tidy dataset with mean value for each subject and activity is generated. The output file is `tiddata_all_Y.txt` and is available in this repo.
+	- `tBodyAcc-mean()-X` becomes `timeBodyAccMeanX` 
+	- `tBodyAcc-std()-Y` becomes `timeBodyAccStdY`
+	- `fBodyAcc-mean()-Z` becomes `freqBodyAccMeanZ`
+	- `fBodyBodyGyroMag-mean()` becomes `freqBodyGyroMagMean`
+	- `fBodyBodyGyroJerkMag-meanFreq()` becomes `freqBodyGyroJerkMagMeanFreq`
+5. Independent tidy dataset with mean value for each subject and activity is generated. The output file is `tidy_data.txt` and is available in this repo.
 
 ##Variables
 1. data_test_X, data_test_Y, data_train_X, data_train_Y, data_test_subject and data_train_subject contain the data from the downloaded files.
