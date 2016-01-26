@@ -23,4 +23,4 @@ The script run_analysis.R performs all the 5 steps explained in the course proje
 2. data_features contains the file `features.txt`. mean_std contains all the columns having literal 'mean' or 'std'. 
 3. data_activities contains the file `activity_labels.txt`. Correct activity name is updated from here.
 4. all_data merges data_all_X, data_all_Y and data_all_subject into a big dataset. Comprehensive names are updated in the dataset.
-5. And finally, avg contains the relevant averages which is finally stored in `tidy_data.txt` file. ddply() from the plyr package is used to apply colMeans() and ease the development.
+5. And finally, avg contains the relevant averages which is finally stored in `tidy_data.txt` file. ddply() from the plyr package is used to apply colMeans().
