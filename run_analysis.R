@@ -3,20 +3,24 @@ library(plyr)
 library(data.table)
 library(tidyr)
 
-#Path of the downloaded files.
-file_path <- "E:\\Amirs Study Stuffs\\Data Science Certification\\R_Prog\\data_cleaning\\UCI HAR Dataset"
+## Download and unzip dataset 
+if (!file.exists("./UCI HAR Dataset")) {
+    fileUrl<- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+    download.file(fileUrl, "Dataset.zip")
+    unzip("Dataset.zip") 
+}
 
 #Load data files
-data_test_X <- read.table(file.path(file_path, "test", "X_test.txt"))
-data_train_X <- read.table(file.path(file_path, "train", "X_train.txt"))
+data_test_X <- read.table("./UCI HAR Dataset/test/X_test.txt")
+data_train_X <- read.table("./UCI HAR Dataset/train/X_train.txt")
 
 #Load activity files
-data_test_Y <- read.table(file.path(file_path, "test", "Y_test.txt"))
-data_train_Y <- read.table(file.path(file_path, "train", "Y_train.txt"))
+data_test_Y <- read.table("./UCI HAR Dataset/test/Y_test.txt")
+data_train_Y <- read.table("./UCI HAR Dataset/train/Y_train.txt")
 
 #Load subject files
-data_test_subject <- read.table(file.path(file_path, "test", "subject_test.txt"))
-data_train_subject <- read.table(file.path(file_path, "train", "subject_train.txt"))
+data_test_subject <- read.table("./UCI HAR Dataset/test/subject_test.txt")
+data_train_subject <- read.table("./UCI HAR Dataset/train/subject_train.txt")
 
 #1. Merging the training and the test sets to create one data set.
 #One data set for X
@@ -30,7 +34,7 @@ data_all_subject <- rbind(data_train_subject, data_test_subject)
 
 #2. Extract only the measurements on the mean and standard deviation for each measurement.
 #Load features.txt file
-data_features <- read.table(file.path(file_path, "features.txt"))
+data_features <- read.table("./UCI HAR Dataset/features.txt")
 
 #Get list of mean and std columns
 mean_std <- grep("-(mean|std)\\(\\)", data_features[, 2])
@@ -43,7 +47,7 @@ names(data_all_X) <- data_features[mean_std, 2]
 
 #3. Use descriptive activity names to name the activities in the data set
 #Load activity_labels.txt file
-data_activities <- read.table(file.path(file_path, "activity_labels.txt"))
+data_activities <- read.table("./UCI HAR Dataset/activity_labels.txt")
 
 #Update correct activity name
 data_all_Y[, 1] <- data_activities[data_all_Y[, 1], 2]
@@ -71,4 +75,4 @@ names(all_data)<-gsub("BodyBody", "Body", names(all_data))
 avg <- ddply(all_data, .(subject, activity), function(x) colMeans(x[, 1:66]))
 
 #Create tidy data set
-write.table(avg, file.path(file_path, "tidy_data.txt"), row.name=FALSE)
+write.table(avg, "tidy_data.txt", row.name=FALSE)
