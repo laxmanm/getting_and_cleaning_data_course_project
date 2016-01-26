@@ -1,5 +1,5 @@
 #Load necessary packages
-library(dplyr)
+library(plyr)
 library(data.table)
 library(tidyr)
 
@@ -71,4 +71,4 @@ names(all_data)<-gsub("BodyBody", "Body", names(all_data))
 avg <- ddply(all_data, .(subject, activity), function(x) colMeans(x[, 1:66]))
 
 #Create tidy data set
-write.table(avg, "tidy_data.txt", row.name=FALSE)
+write.table(avg, file.path(file_path, "tidy_data.txt"), row.name=FALSE)
